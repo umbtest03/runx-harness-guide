@@ -1,23 +1,53 @@
-cases:
-  - name: passes_above_threshold
-    verdict: SEALED
-    input:
-      score: 85
-      threshold: 70
-    expected:
-      passed: true
-      reason: Score 85 meets or exceeds threshold 70
+skill: example-validator
+version: "0.1.0"
 
-  - name: fails_below_threshold
-    verdict: SEALED
-    input:
-      score: 45
-      threshold: 60
-    expected:
-      passed: false
-      reason: Score 45 is below threshold 60
+catalog:
+  kind: skill
+  audience: public
+  visibility: public
+  role: canonical
 
-  - name: missing_required_score
-    verdict: STOP
-    input:
-      threshold: 70
+harness:
+  cases:
+    - name: passes_above_threshold
+      runner: default
+      inputs:
+        score: 85
+        threshold: 70
+      expect:
+        status: sealed
+
+    - name: fails_below_threshold
+      runner: default
+      inputs:
+        score: 45
+        threshold: 60
+      expect:
+        status: sealed
+
+    - name: missing_required_score
+      runner: default
+      inputs:
+        threshold: 70
+      expect:
+        status: stopped
+
+runners:
+  default:
+    default: true
+    type: cli-tool
+    command: python
+    args:
+      - run.py
+    artifacts:
+      named_emits:
+        verdict: verdict
+    inputs:
+      score:
+        type: integer
+        description: The score to validate
+        required: true
+      threshold:
+        type: integer
+        description: Minimum passing score
+        required: false

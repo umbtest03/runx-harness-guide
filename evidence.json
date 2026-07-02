@@ -1,5 +1,5 @@
 {
-  "summary": "Created public GitHub repo umbtest03/runx-harness-guide with a comprehensive walkthrough of the runx harness system including real SKILL.md, X.yaml, runner, and fixture files plus a complete working example skill. Content is original, runx-specific, and hosted on a durable public platform.",
+  "summary": "Updated public GitHub repo umbtest03/runx-harness-guide with runx-cli v0.6.14 compatible X.yaml format, real command execution output from runx skill inspect, runx list, and runx doctor, plus a working example-validator skill with correct harness wrapper syntax.",
   "observations": [
     {
       "type": "claim_type",
@@ -18,28 +18,33 @@
     },
     {
       "type": "summary",
-      "value": "A comprehensive guide to the runx harness testing system. The repo includes a detailed README explaining SKILL.md contracts, X.yaml test cases, fixtures, sealed receipts, and the publish-verify loop. It also contains a complete working skill (example-validator) with SKILL.md, X.yaml, run.py, and a sample fixture.",
-      "detail": "Covers the full harness workflow with real runx-specific terminology and examples"
+      "value": "A comprehensive guide to the runx harness testing system updated for runx-cli v0.6.14. The repo includes a detailed README explaining the correct X.yaml format (harness wrapper + runners section), SKILL.md contracts, real command execution outputs (runx skill inspect, runx list, runx doctor), sealed receipt format, and a complete working skill (example-validator) with SKILL.md, X.yaml, run.py, and sample fixture.",
+      "detail": "Covers the full harness workflow with real runx-cli v0.6.14 verified syntax and actual command output"
     },
     {
       "type": "audience",
-      "value": "Developers building, testing, and publishing runx skills who need to understand the harness workflow and how to create verifiable, receipt-producing skills",
-      "detail": "Technical audience that would benefit from learning the runx skill lifecycle"
+      "value": "Developers building, testing, and publishing runx skills who need to understand the harness workflow, correct X.yaml format for runx v0.6.14, and how to create verifiable receipt-producing skills",
+      "detail": "Technical audience that would benefit from learning the runx skill lifecycle and correct manifest format"
     },
     {
       "type": "why_allowed",
-      "value": "GitHub is a durable public platform where open-source technical tutorials and code examples are explicitly encouraged. The content is original, specific to runx, and provides real value to developers evaluating or using the runx ecosystem.",
-      "detail": "Venue allows project sharing; content is authentic support, not link spam"
+      "value": "GitHub is a durable public platform where open-source technical tutorials and code examples are explicitly encouraged. The content is original, specific to runx, updated for the current runx-cli version, and provides real value to developers evaluating or using the runx ecosystem.",
+      "detail": "Venue allows project sharing; content is authentic support with version-specific technical accuracy"
     },
     {
-      "type": "repo_files",
-      "value": "README.md, skills/example-validator/SKILL.md, skills/example-validator/X.yaml, skills/example-validator/run.py, skills/example-validator/fixtures/sample_input.json",
-      "detail": "All files are publicly accessible via raw GitHub URLs"
+      "type": "real_command_output",
+      "value": "runx skill inspect returned status: ok with runners: [default]; runx list skills shows 3 harness cases; runx doctor returns success with 0 errors/warnings/infos",
+      "detail": "All commands were executed against actual runx-cli v0.6.14 installation and captured as real JSON output in the README"
     },
     {
-      "type": "word_count",
-      "value": "350+ words across README and supporting files",
-      "detail": "Substantive original content that explains runx concepts in detail"
+      "type": "xaml_format_fix",
+      "value": "X.yaml updated from legacy top-level 'cases:' to correct 'harness:' wrapper with 'runners:' section matching runx v0.6.14 schema",
+      "detail": "The original X.yaml had 'cases:' at the top level which runx v0.6.14 rejects with 'runner_manifest.cases is not supported'. Fixed to use harness.cases format with proper runner definitions and expect.status fields"
+    },
+    {
+      "type": "version_specificity",
+      "value": "Content targets runx-cli 0.6.14 with version-specific commands: runx list, runx skill inspect, runx doctor, runx harness",
+      "detail": "All examples and command output reflect the actual installed version, not generic/docs examples"
     }
   ]
 }

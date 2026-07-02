@@ -1,27 +1,30 @@
 ---
 name: example-validator
-version: 0.1.0
 description: Validates that an input score meets a configurable policy threshold
+source:
+  type: cli-tool
+  command: python
+  args:
+    - run.py
+  timeout_seconds: 10
+  sandbox:
+    profile: readonly
+    cwd_policy: skill-directory
 inputs:
   score:
     type: integer
-    description: The score to validate
     required: true
+    description: The score to validate
   threshold:
     type: integer
-    description: Minimum passing score
     required: false
-    default: 70
-outputs:
-  verdict:
-    type: object
-    description: Pass/fail decision with reason
-    properties:
-      passed:
-        type: boolean
-      reason:
-        type: string
-run:
-  kind: python
-  file: run.py
+    description: Minimum passing score
+runx:
+  input_resolution:
+    required:
+      - score
+  artifacts:
+    named_emits:
+      verdict: verdict
 ---
+Validates that input score meets threshold and returns a pass/fail verdict.
