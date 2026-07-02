@@ -1,0 +1,23 @@
+cases:
+  - name: passes_above_threshold
+    verdict: SEALED
+    input:
+      score: 85
+      threshold: 70
+    expected:
+      passed: true
+      reason: Score 85 meets or exceeds threshold 70
+
+  - name: fails_below_threshold
+    verdict: SEALED
+    input:
+      score: 45
+      threshold: 60
+    expected:
+      passed: false
+      reason: Score 45 is below threshold 60
+
+  - name: missing_required_score
+    verdict: STOP
+    input:
+      threshold: 70
