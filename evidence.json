@@ -1,0 +1,11 @@
+{
+  "observations": {
+    "claim_type": "github_repo_tutorial",
+    "public_url": "https://github.com/umbtest03/runx-harness-guide",
+    "runx_link_found": true,
+    "summary": "A comprehensive guide to the runx harness testing system. The repo includes a detailed README explaining SKILL.md contracts, X.yaml test cases, fixtures, sealed receipts, and the publish-verify loop. It also contains a complete working skill (example-validator) with all required files and a sample fixture.",
+    "audience": "Developers building, testing, and publishing runx skills who need to understand the harness workflow and how to create verifiable, receipt-producing skills",
+    "why_allowed": "GitHub is a durable public platform where open-source technical tutorials and code examples are explicitly encouraged. The content is original, specific to runx, and provides real value to developers evaluating or using the runx ecosystem."
+  },
+  "summary": "Created public GitHub repo umbtest03/runx-harness-guide with a comprehensive walkthrough of the runx harness system including real SKILL.md, X.yaml, runner, and fixture files plus a complete working example skill."
+}
